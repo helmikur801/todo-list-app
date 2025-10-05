@@ -1,0 +1,275 @@
+/* style.css */
+
+/* Pengaturan Dasar & Font */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6; 
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    
+    /* --- Perbaikan: Menambahkan 'center' ke align-items --- */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* NILAI DITAMBAHKAN DI SINI */
+    /* --------------------------------- */
+    
+    width: 100%; 
+    min-height: 100vh; 
+}
+
+/* Header */
+.header-hijau {
+    background-color: #4CAF50; /* Hijau cerah */
+    color: white;
+    padding: 20px 0;
+    text-align: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan lebih jelas */
+    width: 100%; /* Pastikan header mengambil lebar penuh halaman */
+}
+
+.header-hijau h1 {
+    margin: 0; /* Hapus margin default pada h1 agar tidak ada spasi ekstra */
+    font-size: 2em;
+    /* Tambahan: pastikan h1 sepenuhnya di tengah jika ada elemen lain di masa depan */
+    display: block; 
+    text-align: center;
+}
+
+/* Container Utama */
+.container {
+    max-width: 800px;
+    width: 90%; /* Pastikan container responsif */
+    margin: 40px auto; /* 'auto' tetap penting untuk margin atas/bawah */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 30px;
+}
+
+/* Bagian Input Tugas */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#task-input, #due-date-input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#task-input:focus, #due-date-input:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+    outline: none;
+}
+
+#task-input {
+    flex-grow: 1; 
+}
+
+#due-date-input {
+    width: 150px;
+}
+
+#add-button {
+    padding: 12px 18px;
+    background-color: #2196F3; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#add-button:hover {
+    background-color: #1a7bbd;
+    transform: translateY(-2px);
+}
+
+/* Filter Section */
+.filter-section {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+#filter-select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Daftar Tugas (List) */
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+#task-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 12px;
+    background-color: #ffffff;
+    border-left: 5px solid #2196F3;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    cursor: grab; /* Menunjukkan bisa digeser */
+}
+
+#task-list li:hover {
+    background-color: #fafafa;
+}
+
+/* Dragging State */
+#task-list li.dragging {
+    opacity: 0.5;
+    transform: scale(1.02);
+}
+
+/* Teks Tugas dan Tanggal */
+.task-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.task-text {
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.due-date {
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* Tombol Aksi (Hapus & Edit) */
+.action-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.delete-button {
+    color: #F44336; /* Merah */
+}
+
+.delete-button:hover {
+    color: #d32f2f;
+}
+
+.edit-button {
+    color: #FFC107; /* Kuning */
+}
+
+.edit-button:hover {
+    color: #ff9800;
+}
+
+/* Status Selesai (Completed) */
+.completed {
+    background-color: #e8f5e9 !important; 
+    opacity: 0.85;
+    border-left: 5px solid #4CAF50 !important;
+    order: 1; /* Pindahkan tugas selesai ke bawah (opsional) */
+}
+
+.completed .task-text {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Status Tenggat Mendesak (Urgent) */
+.urgent {
+    border-left: 5px solid #ff7043 !important; /* Oranye */
+    background-color: #fff3e0 !important;
+}
+
+/* Empty State Message */
+.empty-state-message {
+    text-align: center;
+    color: #aaa;
+    margin: 50px 0;
+    font-style: italic;
+    padding: 20px;
+    border: 1px dashed #ddd;
+    border-radius: 8px;
+}
+
+/* Footer */
+.footer-style {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    background-color: #ddd;
+    color: #555;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+/* Responsif untuk Layar Kecil (Mobile) */
+/* Responsif untuk Layar Kecil (Mobile) */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    .header-hijau h1 {
+        font-size: 1.5em; /* Kecilkan ukuran font di mobile */
+    }
+    .input-section {
+        flex-direction: column; 
+        /* --- Perbaikan utama di sini: --- */
+        align-items: center; /* Memusatkan item input secara horizontal */
+        /* --------------------------------- */
+    }
+
+    #due-date-input, #add-button {
+        /* Tambahkan lebar penuh agar input dan tombol lebih rapi di tengah */
+        width: 100%; 
+        margin-top: 10px; 
+    }
+    
+    #task-input {
+        width: 100%;
+    }
+
+    /* Tugas di mobile */
+    #task-list li {
+        flex-wrap: wrap; 
+    }
+
+    .task-details {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .action-buttons {
+        margin-left: auto; 
+    }
+    
+    .filter-section {
+        text-align: left; 
+    }
+}

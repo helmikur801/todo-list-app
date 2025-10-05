@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="header-hijau">
+        <h1>Daily Task Management </h1>
+    </header>
+
+    <div class="container">
+        <h2>Today's To-Do List </h2>
+
+        <div class="input-section">
+            <input type="text" id="task-input" placeholder="Add a new task...">
+            <input type="date" id="due-date-input"> 
+            <button id="add-button" title="Add New Task"><i class="fas fa-plus"></i> Add</button>
+        </div>
+        
+        <div class="filter-section">
+            <label for="filter-select">Show:</label>
+            <select id="filter-select">
+                <option value="all">All Tasks</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+            </select>
+        </div>
+
+        <ul id="task-list">
+            </ul>
+        
+        <p id="empty-state" class="empty-state-message">Great! No tasks right now. Let's start building your list!</p>
+    </div>
+
+    <script src="script.js"></script>
+
+    <footer class="footer-style">
+        <p>&copy; 2025 To-Do List Application. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
